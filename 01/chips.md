@@ -11,3 +11,4 @@
 * [Or16](./Or16.hdl)
 * [Mux16](./Mux16.hdl)
 * [Or8Way](./Or8Way.hdl)
+* [Mux4Way16](./Mux4Way16.hdl)
