@@ -19,3 +19,6 @@
 ## Chapter 2
 
 * [HalfAdder](./02/HalfAdder.hdl)
+* [FullAdder](./02/FullAdder.hdl)
+* [Add16](./02/Add16.hdl)
+* [Inc16](./02/Inc16.hdl)
