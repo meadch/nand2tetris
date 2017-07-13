@@ -1,0 +1,14 @@
+/**
+ * Add or And gate to be used as f process in ALU
+ * If f then out=x + y else out=x AND y
+ */
+
+CHIP ShouldAndOrAdd16 {
+    IN x[16], y[16], f;
+    OUT out[16];
+
+    PARTS:
+    And16(a=x, b=y, out=xandy);
+    Add16(a=x, b=y, out=sum);
+    Mux16(a=xandy, b=sum, sel=f, out=out);
+}

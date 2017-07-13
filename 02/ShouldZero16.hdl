@@ -1,0 +1,12 @@
+/**
+ * Zero gate to be used as zx and zy components in ALU
+ * If z then out=0 else out=in
+ */
+
+CHIP ShouldZero16 {
+    IN in[16], z;
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=in, b[0..15]=false, sel=z, out=out);
+}

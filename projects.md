@@ -22,3 +22,4 @@
 * [FullAdder](./02/FullAdder.hdl)
 * [Add16](./02/Add16.hdl)
 * [Inc16](./02/Inc16.hdl)
+* [ALU](./02/ALU.hdl)

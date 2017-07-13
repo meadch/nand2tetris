@@ -42,5 +42,31 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+   // Should x, y be zerod?
+   ShouldZero16(in=x, z=zx, out=zerox);
+   ShouldZero16(in=y, z=zy, out=zeroy);
+
+   // Should zerox, zeroy be notted?
+   ShouldNot16(in=zerox, n=nx, out=notx);
+   ShouldNot16(in=zeroy, n=ny, out=noty);
+
+   // Should either AND or + notx, noty
+   And16(a=notx, b=noty, out=xandy);
+   Add16(a=notx, b=noty, out=sum);
+   Mux16(a=xandy, b=sum, sel=f, out=fofxandy);
+
+   // Coursera submission tool couldn't find this file...
+   // ShouldAndOrAdd16(x=notx, y=noty, f=f, out=fofxandy);
+
+   // Should result be notted?
+   ShouldNot16(in=fofxandy, n=no, out=result);
+
+   // Is result negative?
+   IsNegative16(x=result, out=ng);
+   
+   // Is result zero?
+   IsZero16(x=result, out=zr);
+
+   // Send result out. This step exists because error if trying to generate out from ShouldNot16 and using it in IsNegative16, IsZero16
+   Mux16(a=result, b=result, sel=false, out=out);
 }

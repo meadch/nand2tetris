@@ -1,0 +1,15 @@
+/**
+ * Gate to be used as zr outputin ALU
+ * If x = 0 then out=1 else out=0
+ */
+
+CHIP IsZero16 {
+    IN x[16];
+    OUT out;
+
+    PARTS:
+    Or8Way(in=x[0..7], out=does1existinfirsthalf);
+    Or8Way(in=x[8..15], out=does1existinsecondhalf);
+    Or(a=does1existinfirsthalf, b=does1existinsecondhalf, out=does1exist);
+    Not(in=does1exist, out=out);
+}

@@ -1,0 +1,12 @@
+/**
+ * Gate to be used as ng outputin ALU
+ * If x < 0 then out=1 else out=0
+ */
+
+CHIP IsNegative16 {
+    IN x[16];
+    OUT out;
+
+    PARTS:
+    Mux(a=false, b=true, sel=x[15], out=out);
+}
