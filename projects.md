@@ -23,3 +23,8 @@
 * [Add16](./02/Add16.hdl)
 * [Inc16](./02/Inc16.hdl)
 * [ALU](./02/ALU.hdl)
+
+## Chapter 3
+
+* [Bit](./03/Bit.hdl)
+* [Register](./03/Register.hdl)
