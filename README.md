@@ -1,5 +1,5 @@
 # From NAND to Tetris
-## Building a Modern Computer from First Principles
+## git remote add origin https://github.com/meadch/nand2tetris.git
 
 This repository includes project solutions.
 
@@ -31,6 +31,6 @@ This repository includes project solutions.
 
 ## Chapter 3
 
-* [Bit](./03/Bit.hdl)
-* [Register](./03/Register.hdl)
-* [RAM8](./03/RAM8.hdl)
+* [Bit](./03/a/Bit.hdl)
+* [Register](./03/a/Register.hdl)
+* [RAM8](./03/a/RAM8.hdl)
