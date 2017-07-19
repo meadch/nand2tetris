@@ -1,5 +1,5 @@
 # From NAND to Tetris
-## git remote add origin https://github.com/meadch/nand2tetris.git
+## Building a Modern Computer From First Principles
 
 This repository includes project solutions.
 
