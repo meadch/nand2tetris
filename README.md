@@ -34,3 +34,4 @@ This repository includes project solutions.
 * [Bit](./03/a/Bit.hdl)
 * [Register](./03/a/Register.hdl)
 * [RAM8](./03/a/RAM8.hdl)
+* [RAM64](./03/a/RAM64.hdl)
