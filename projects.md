@@ -28,3 +28,4 @@
 
 * [Bit](./03/Bit.hdl)
 * [Register](./03/Register.hdl)
+* [RAM8](./03/RAM8.hdl)
