@@ -1,3 +1,8 @@
+# From NAND to Tetris
+## Building a Modern Computer from First Principles
+
+This repository includes project solutions.
+
 ## Chapter 1
 
 * [Not](./01/Not.hdl)
