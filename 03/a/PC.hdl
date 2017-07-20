@@ -16,5 +16,15 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    // Should be incremented?
+    Inc16(in=prev, out=incremented);
+    Mux16(a=prev, b=incremented, sel=inc, out=potentiallyincremented);
+
+    // Should be replaced?
+    Mux16(a=potentiallyincremented, b=in, sel=load, out=potentiallyreplaced);
+
+    // Should be zeroed?
+    Mux16(a=potentiallyreplaced, b[0..15]=false, sel=reset, out=next);
+
+    Register(in=next, load=true, out=prev, out=out);
 }
