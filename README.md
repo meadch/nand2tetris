@@ -35,3 +35,6 @@ This repository includes project solutions.
 * [Register](./03/a/Register.hdl)
 * [RAM8](./03/a/RAM8.hdl)
 * [RAM64](./03/a/RAM64.hdl)
+* [RAM512](./03/a/RAM512.hdl)
+* [RAM4K](./03/a/RAM4K.hdl)
+* [RAM16K](./03/a/RAM16K.hdl)
