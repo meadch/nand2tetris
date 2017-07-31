@@ -39,3 +39,8 @@ This repository includes project solutions.
 * [RAM4K](./03/b/RAM4K.hdl)
 * [RAM16K](./03/b/RAM16K.hdl)
 * [PC](./03/a/PC.hdl)
+
+## Chapter 4
+
+* [Mult](./04/mult/Mult.asm)
+* [Fill](./04/fill/Fill.asm)
