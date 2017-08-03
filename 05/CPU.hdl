@@ -91,14 +91,28 @@ CHIP CPU {
     Or(a=zr, b=ng, out=ALUisLTE);
     Not(in=ALUisLTE, out=ALUisGT);
     
-    And(a=instruction[1], b=zr, out=jeq);
-    And(a=instruction[0], b=ALUisGT, out=jgt);
-    And(a=instruction[2], b=ng, out=jlt);
+    // Map instruction bits to j variables for readability
+    And(a=instruction[0], b=true, out=j3);
+    And(a=instruction[1], b=true, out=j2);
+    And(a=instruction[2], b=true, out=j1);
 
-    Or(a=jlt, b=jeq, out=jle);
-    Or(a=jle, b=jgt, out=jmp);
-    
-    And(a=isCinstruction, b=jmp, out=shouldLoad);
+    // if ALUOutput is zero, j2 needs to be 1
+    And(a=j2, b=zr, out=jumpOnEqual);
+
+    // If ALUOutput is less than zero, j1 has to be 1
+    And(a=j1, b=ng, out=jumpOnLT);
+
+    // If ALUOutput is greater than 0, j3 needs to be 1
+    And(a=j3, b=ALUisGT, out=jumpOnGT);
+
+    // if jumpOnEqual or jumpOnLT is satisfied, we can jump
+    Or(a=jumpOnEqual, b=jumpOnLT, out=jumpOnLTE);
+
+    // if jumpOnLTE or jumpOnGT is satisfied, we can jump
+    Or(a=jumpOnLTE, b=jumpOnGT, out=canJump);
+
+    // But only if it's a C instruction
+    And(a=isCinstruction, b=canJump, out=shouldLoad);
     Not(in=shouldLoad, out=shouldInc);
 
     PC(in[0..14]=Aregister, reset=reset, load=shouldLoad, inc=shouldInc, out[0..14]=pc);

@@ -44,3 +44,7 @@ This repository includes project solutions.
 
 * [Mult](./04/mult/Mult.asm)
 * [Fill](./04/fill/Fill.asm)
+
+## Chapter 5
+
+* [CPU](./05/CPU.hdl)
