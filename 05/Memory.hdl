@@ -27,5 +27,13 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    // if address[14] = 1, funnel to either screen or keyboard
+        // if address[13] = 1, funnel to keyboard
+    DMux4Way(in=load, sel=address[13..14], a=selectRAMA, b=selectRAMB, c=selectScreen, d=selectKBD);
+    Or(a=selectRAMA, b=selectRAMB, out=loadRAM);
+    RAM16K(address=address[0..13], load=loadRAM, in=in, out=RAMout);
+    Screen(address=address[0..12], load=selectScreen, in=in, out=ScreenOut);
+    Keyboard(out=KbdOut);
+
+    Mux4Way16(a=RAMout, b=RAMout, c=ScreenOut, d=KbdOut, sel=address[13..14], out=out);
 }

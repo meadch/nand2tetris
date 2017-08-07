@@ -47,4 +47,6 @@ This repository includes project solutions.
 
 ## Chapter 5
 
+* [Computer](./05/Computer.hdl)
 * [CPU](./05/CPU.hdl)
+* [Memory](./05/Memory.hdl)
