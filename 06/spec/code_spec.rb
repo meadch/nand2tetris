@@ -2,7 +2,8 @@ require_relative '../code'
 
 describe 'Code' do
   before(:each) do
-    @code = Code.new
+    @code = Object.new
+    @code.extend(Code)
   end
 
   it 'can return the correct dest' do

@@ -1,4 +1,4 @@
-class Code
+module Code
   def dest(string = '')
     dest = '000'
     dest[0] = '1' if string.include? 'A'
