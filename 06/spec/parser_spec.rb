@@ -48,8 +48,6 @@ describe 'Parser' do
     it 'can return the correct jump' do
       @parser.advance
       expect(@parser.jump).to eq nil
-      @parser.advance
-      expect(@parser.jump).to eq nil
     end
   end
 end
