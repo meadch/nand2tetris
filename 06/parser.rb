@@ -8,16 +8,22 @@ class Parser
   COMP_PATTERN = /=(.+)/
 
   def initialize(filename)
+    @line_num = 0
     @valid_lines = generate_valid_lines(filename)
     @current_command = nil
   end
 
+  def reset
+    @line_num = 0
+  end
+
   def has_more_commands?
-    @valid_lines.count > 0
+    @line_num < @valid_lines.count
   end
 
   def advance
-    @current_command = @valid_lines.shift if has_more_commands?
+    @current_command = @valid_lines[@line_num] if has_more_commands?
+    @line_num += 1
   end
 
   def command_type
