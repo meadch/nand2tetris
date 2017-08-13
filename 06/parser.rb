@@ -4,7 +4,7 @@ class Parser
   COMMENT = /^\/\//
   A_COMMAND = /^@/
   C_COMMAND = /(=|;)/
-  L_COMMAND = /^\(\.+\)/
+  L_COMMAND = /^\((.+)\)$/
   COMP_PATTERN = /=(.+)/
 
   def initialize(filename)
@@ -70,6 +70,14 @@ class Parser
   end
 
   def generate_valid_lines(filename)
+    remove_inline_comments filtered_lines(filename)
+  end
+
+  def remove_inline_comments(lines)
+    lines.map { |l| l.split('//').first }
+  end
+
+  def filtered_lines(filename)
     File.open(filename).select do |line|
       line.gsub!(/\s+/, '')
       is_valid_command?(line)

@@ -1,4 +1,8 @@
 module Code
+  def is_positive_integer?(string)
+    !!/^[0-9]([0-9]*)?$/.match(string)
+  end
+
   def dest(string = '')
     dest = '000'
     dest[0] = '1' if string.include? 'A'

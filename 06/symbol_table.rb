@@ -1,15 +1,13 @@
 class SymbolTable
   def initialize
-    @RAM_location = 16
     @table = initialize_table
   end
 
-  def add_entry(symbol)
-    @table[symbol.to_sym] = @RAM_location
-    @RAM_location += 1
+  def add_entry(symbol, value)
+    @table[symbol.to_sym] = value
   end
 
-  def contains(symbol)
+  def contains?(symbol)
     !@table[symbol.to_sym].nil?
   end
 
@@ -26,7 +24,7 @@ class SymbolTable
       ARG: 2,
       THIS: 3,
       THAT: 4,
-      SCREEN: 16_364,
+      SCREEN: 16_384,
       KBD: 24_576
     }
 

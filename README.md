@@ -50,3 +50,8 @@ This repository includes project solutions.
 * [Computer](./05/Computer.hdl)
 * [CPU](./05/CPU.hdl)
 * [Memory](./05/Memory.hdl)
+
+## Chapter 6
+
+> Assembler written in Ruby
+* [Assembler](./06/main.rb)
