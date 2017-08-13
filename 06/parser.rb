@@ -3,7 +3,7 @@ class Parser
   EMPTY_STRING = /^$/
   COMMENT = /^\/\//
   A_COMMAND = /^@/
-  C_COMMAND = /=/
+  C_COMMAND = /(=|;)/
   L_COMMAND = /^\(\.+\)/
   COMP_PATTERN = /=(.+)/
 
@@ -44,6 +44,7 @@ class Parser
 
   def dest
     return nil unless command_type == 'C_COMMAND'
+    return '' unless @current_command.include? '='
     @current_command.split(/=/).first
   end
 
